@@ -21,7 +21,7 @@ class _ButtonCategoriesState extends State<ButtonCategories> {
               )
             )
         );
-        case "Back End":
+        case "Mobile":
           return ButtonStyle(
             backgroundColor: WidgetStateProperty.all(Colors.red),
             shape: WidgetStateProperty.all
@@ -39,8 +39,16 @@ class _ButtonCategoriesState extends State<ButtonCategories> {
             )
             )
         );
+        default:
+          return ButtonStyle(
+            backgroundColor: WidgetStateProperty.all(Colors.indigo),
+            shape: WidgetStateProperty.all
+              (RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10)
+            )
+            )
+        );
     }
-    return null;
   }
 
   @override

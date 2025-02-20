@@ -11,17 +11,15 @@ class Categories extends StatefulWidget {
 class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(5, 8, 5, 8),
-      child: SizedBox(
-        height: 45,
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [Row(
-            spacing: 12,
-            children: widget.children
-          )],
-        ),
+    return SizedBox(
+      height: 45,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          spacing: 12,
+          children: widget.children
+        )],
       ),
     );;
   }

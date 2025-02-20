@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobflix_dart/layout/Categories/ButtonCategories.dart';
 import "package:mobflix_dart/layout/Categories/Categories.dart";
+import "package:mobflix_dart/layout/Categories/ListCategory.dart";
+
+import 'Categories/ItemCategory.dart';
 
 class layout extends StatefulWidget {
   const layout({super.key});
@@ -12,7 +15,7 @@ class layout extends StatefulWidget {
 class _layoutState extends State<layout> {
   String _selectedCategory = "Front End"; // Variável de estado
 
-  String CategorieSelected(title) {
+  String selectCategory(title) {
     setState(() {
       _selectedCategory = title; // Atualiza a variável de estado
     });
@@ -28,44 +31,57 @@ class _layoutState extends State<layout> {
         titleTextStyle: Theme.of(context).textTheme.headlineLarge,
         title: Text("Mobflix"),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox.fromSize(
-            child: Image.asset(
-              "assets/images/Banner.png",
-              width: double.infinity,
-              fit: BoxFit.contain,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox.fromSize(
+              child: Image.asset(
+                "assets/images/Banner.png",
+                width: double.infinity,
+                fit: BoxFit.contain,
+              ),
             ),
-          ),
-          Categories(children: [
-            ButtonCategories(
-              title: "Front End",
-              onPressed: () => CategorieSelected("Front End"),
+            Categories(children: [
+              ButtonCategories(
+                title: "Front End",
+                onPressed: () => selectCategory("Front End"),
+              ),
+              ButtonCategories(
+                title: "Mobile",
+                onPressed: () => selectCategory("Mobile"),
+              ),
+              ButtonCategories(
+                title: "Banco de Dados",
+                onPressed: () => selectCategory("Banco de Dados"),
+              ),
+              ButtonCategories(
+                  title: "Back End",
+                  onPressed: () => selectCategory("Back End"))
+            ]),
+            Divider(
+              color: Colors.blue,
             ),
-            ButtonCategories(
-              title: "Back End",
-              onPressed: () => CategorieSelected("Back End"),
-            ),
-            ButtonCategories(
-              title: "Banco de Dados",
-              onPressed: () => CategorieSelected("Banco de Dados"),
-            ),
-          ]),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
+            ListCategory(
               children: [
-                Text("Categoria: $_selectedCategory", style: Theme.of(context).textTheme.headlineSmall,),
+                ItemCategory(
+                  title: 'Mobile',
+                  image: "ThumbVideo1.png",
+                ),
+                ItemCategory(title: "Front End", image: "ThumbVideo2.png"),
+                ItemCategory(title: "Mobile", image: "ThumbVideo1.png")
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-      floatingActionButton: ElevatedButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
-      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          child: Icon(
+            Icons.add,
+            size: 30,
+          )),
     );
   }
 }
