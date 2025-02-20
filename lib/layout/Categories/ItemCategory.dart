@@ -17,7 +17,7 @@ class ItemCategory extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text("Categoria: ", style: Theme.of(context).textTheme.titleLarge,),
+              Text("Categoriaa: ", style: Theme.of(context).textTheme.titleLarge,),
               ButtonCategories(title: title, onPressed: () {}),
             ],
           ),
