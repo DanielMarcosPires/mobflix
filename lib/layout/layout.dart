@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobflix_dart/layout/Categories/ButtonCategories.dart';
 import "package:mobflix_dart/layout/Categories/Categories.dart";
+import 'package:mobflix_dart/layout/Categories/ItemCategory_filter.dart';
 import "package:mobflix_dart/layout/Categories/ListCategory.dart";
 
 import 'Categories/ItemCategory.dart';
@@ -22,6 +23,25 @@ class _layoutState extends State<layout> {
     return _selectedCategory;
   }
 
+  List<Widget> get itemsCategory => [
+        ItemcategoryFilter(
+            selectedCategory: _selectedCategory,
+            image: "ThumbVideo1.png",
+            categoryName: "Mobile"),
+        ItemcategoryFilter(
+            selectedCategory: _selectedCategory,
+            image: "ThumbVideo2.png",
+            categoryName: "Front End"),
+        ItemcategoryFilter(
+            selectedCategory: _selectedCategory,
+            image: "ThumbVideo1.png",
+            categoryName: "Banco de Dados"),
+        ItemcategoryFilter(
+            selectedCategory: _selectedCategory,
+            image: "ThumbVideo1.png",
+            categoryName: "Front End"),
+      ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,35 +62,21 @@ class _layoutState extends State<layout> {
                 fit: BoxFit.contain,
               ),
             ),
-            Categories(children: [
-              ButtonCategories(
-                title: "Front End",
-                onPressed: () => selectCategory("Front End"),
-              ),
-              ButtonCategories(
-                title: "Mobile",
-                onPressed: () => selectCategory("Mobile"),
-              ),
-              ButtonCategories(
-                title: "Banco de Dados",
-                onPressed: () => selectCategory("Banco de Dados"),
-              ),
-              ButtonCategories(
-                  title: "Back End",
-                  onPressed: () => selectCategory("Back End"))
-            ]),
-            Divider(
-              color: Colors.blue,
+            Divider(),
+            Categories(
+              children: itemsCategory
+                  .map((element) => (element as ItemcategoryFilter)
+                      .categoryName) // Extrai os nomes
+                  .toSet() // Remove duplicatas
+                  .map((category) => ButtonCategories(
+                        title: category,
+                        onPressed: () => selectCategory(category),
+                      ))
+                  .toList(),
             ),
+            Divider(),
             ListCategory(
-              children: [
-                ItemCategory(
-                  title: 'Mobile',
-                  image: "ThumbVideo1.png",
-                ),
-                ItemCategory(title: "Front End", image: "ThumbVideo2.png"),
-                ItemCategory(title: "Mobile", image: "ThumbVideo1.png")
-              ],
+              children: itemsCategory,
             ),
           ],
         ),
@@ -78,9 +84,10 @@ class _layoutState extends State<layout> {
       floatingActionButton: FloatingActionButton(
           onPressed: () {},
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
           child: Icon(
             Icons.add,
-            size: 30,
+            size: 40,
           )),
     );
   }

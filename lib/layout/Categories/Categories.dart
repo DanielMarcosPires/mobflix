@@ -9,18 +9,24 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
+
   @override
   Widget build(BuildContext context) {
+    double x = 8;
+    double y = 2;
     return SizedBox(
       height: 45,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: [Row(
+        padding: EdgeInsets.fromLTRB(x, y, x, y),
+        children: [
+          Row(
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 12,
           children: widget.children
-        )],
+        )
+        ],
       ),
-    );;
+    );
   }
 }

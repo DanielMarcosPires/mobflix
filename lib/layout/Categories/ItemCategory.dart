@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'ButtonCategories.dart';
 
 class ItemCategory extends StatelessWidget {
-  final String title;
+  final String category;
   final String image;
-  const ItemCategory({super.key, required this.title, required this.image});
+  const ItemCategory({super.key, required this.category, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -13,16 +13,15 @@ class ItemCategory extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 8,
+        spacing: 4,
         children: [
           Row(
             children: [
-              Text("Categoriaa: ", style: Theme.of(context).textTheme.titleLarge,),
-              ButtonCategories(title: title, onPressed: () {}),
+              Text("Categoria: ", style: Theme.of(context).textTheme.titleLarge,),
+              ButtonCategories(title: category, onPressed: (){},),
             ],
           ),
           SizedBox(
-              width: 400,
               child: Card(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
