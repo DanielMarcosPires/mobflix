@@ -21,48 +21,21 @@ class _LayoutState extends State<Layout> {
     return _selectedCategory;
   }
 
-  List<Widget> get itemsCategory => [
+  List<Widget> get list => [
         ItemcategoryFilter(
             selectedCategory: _selectedCategory,
-            image: "ThumbVideo1.png",
-            categoryName: "Mobile"),
-        ItemcategoryFilter(
-            selectedCategory: _selectedCategory,
-            image: "ThumbVideo2.png",
-            categoryName: "Front End"),
-        ItemcategoryFilter(
-            selectedCategory: _selectedCategory,
-            image: "ThumbVideo1.png",
-            categoryName: "Banco de Dados"),
-        ItemcategoryFilter(
-            selectedCategory: _selectedCategory,
-            image: "ThumbVideo1.png",
-            categoryName: "Front End"),
-        ItemcategoryFilter(
-            selectedCategory: _selectedCategory,
-            image: "ThumbVideo1.png",
-            categoryName: "Back End"),
-    ItemcategoryFilter(
-        selectedCategory: _selectedCategory,
-        image: "ThumbVideo1.png",
-        categoryName: "Mobile"),
-    ItemcategoryFilter(
-        selectedCategory: _selectedCategory,
-        image: "ThumbVideo2.png",
-        categoryName: "Front End"),
-    ItemcategoryFilter(
-        selectedCategory: _selectedCategory,
-        image: "ThumbVideo1.png",
-        categoryName: "Banco de Dados"),
-    ItemcategoryFilter(
-        selectedCategory: _selectedCategory,
-        image: "ThumbVideo1.png",
-        categoryName: "Front End"),
-    ItemcategoryFilter(
-        selectedCategory: _selectedCategory,
-        image: "ThumbVideo1.png",
-        categoryName: "Back End")
-      ];
+            image: "ThumbVideo1",
+            categoryName: "Mobile")
+      ];//Insira Vídeos aqui!
+
+  List<Widget> get itemsCategory => list.isEmpty
+      ? [
+          ItemcategoryFilter(
+              selectedCategory: _selectedCategory,
+              image: "",
+              categoryName: "Sem Categoria!")
+        ]
+      : list;
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +80,7 @@ class _LayoutState extends State<Layout> {
                       .contains(_selectedCategory)) // Filtra pelas categorias
                   .toList(),
             ),
-            SizedBox(height: 100,)
+            SizedBox(height: 100),
           ],
         ),
       ),
@@ -115,7 +88,7 @@ class _LayoutState extends State<Layout> {
           onPressed: () {},
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Icon(
             Icons.add,
             size: 40,

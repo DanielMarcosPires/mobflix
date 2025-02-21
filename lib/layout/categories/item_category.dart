@@ -5,6 +5,7 @@ import 'button_categories.dart';
 class ItemCategory extends StatelessWidget {
   final String category;
   final String image;
+
   const ItemCategory({super.key, required this.category, required this.image});
 
   @override
@@ -17,22 +18,26 @@ class ItemCategory extends StatelessWidget {
         children: [
           Row(
             children: [
-              ButtonCategories(title: category, onPressed: (){},),
+              ButtonCategories(
+                title: category,
+                onPressed: () {},
+              ),
             ],
           ),
           SizedBox(
               child: Card(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      "assets/images/$image",
-                      width: double.maxFinite,
-                      fit: BoxFit.contain,
-                    )
-                  ],
-                ),
-              )),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset(
+                  "assets/images/${image.isEmpty ? "SemFoto" : image}.png",
+                  width: double.maxFinite,
+                  height: image.isEmpty? 200: null,
+                  fit: BoxFit.contain,
+                )
+              ],
+            ),
+          )),
         ],
       ),
     );

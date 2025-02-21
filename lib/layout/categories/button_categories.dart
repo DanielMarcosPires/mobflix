@@ -39,6 +39,15 @@ class _ButtonCategoriesState extends State<ButtonCategories> {
             )
             )
         );
+      case "Sem Categoria!":
+          return ButtonStyle(
+              backgroundColor: WidgetStateProperty.all(Colors.transparent),
+              shape: WidgetStateProperty.all
+                (RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)
+              )
+              )
+          );
         default:
           return ButtonStyle(
             backgroundColor: WidgetStateProperty.all(Colors.indigo),
