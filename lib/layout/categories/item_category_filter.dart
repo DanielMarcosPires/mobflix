@@ -15,8 +15,6 @@ class ItemcategoryFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (categoryName == selectedCategory)
-        ? ItemCategory(category: categoryName, image: image)
-        : SizedBox(height: 0, width: 0,);
+    return ItemCategory(category: categoryName, image: image);
   }
 }

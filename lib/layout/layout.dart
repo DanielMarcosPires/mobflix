@@ -38,6 +38,30 @@ class _LayoutState extends State<Layout> {
             selectedCategory: _selectedCategory,
             image: "ThumbVideo1.png",
             categoryName: "Front End"),
+        ItemcategoryFilter(
+            selectedCategory: _selectedCategory,
+            image: "ThumbVideo1.png",
+            categoryName: "Back End"),
+    ItemcategoryFilter(
+        selectedCategory: _selectedCategory,
+        image: "ThumbVideo1.png",
+        categoryName: "Mobile"),
+    ItemcategoryFilter(
+        selectedCategory: _selectedCategory,
+        image: "ThumbVideo2.png",
+        categoryName: "Front End"),
+    ItemcategoryFilter(
+        selectedCategory: _selectedCategory,
+        image: "ThumbVideo1.png",
+        categoryName: "Banco de Dados"),
+    ItemcategoryFilter(
+        selectedCategory: _selectedCategory,
+        image: "ThumbVideo1.png",
+        categoryName: "Front End"),
+    ItemcategoryFilter(
+        selectedCategory: _selectedCategory,
+        image: "ThumbVideo1.png",
+        categoryName: "Back End")
       ];
 
   @override
@@ -47,7 +71,10 @@ class _LayoutState extends State<Layout> {
         backgroundColor: Theme.of(context).colorScheme.surface,
         centerTitle: true,
         titleTextStyle: Theme.of(context).textTheme.headlineLarge,
-        title: Text("Mobflix"),
+        title: Text(
+          "Mobflix",
+          style: TextStyle(color: Colors.blueAccent),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -74,15 +101,21 @@ class _LayoutState extends State<Layout> {
             ),
             Divider(),
             ListCategory(
-              children: itemsCategory,
+              children: itemsCategory
+                  .where((element) => (element as ItemcategoryFilter)
+                      .categoryName
+                      .contains(_selectedCategory)) // Filtra pelas categorias
+                  .toList(),
             ),
+            SizedBox(height: 100,)
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {},
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
           child: Icon(
             Icons.add,
             size: 40,
