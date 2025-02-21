@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mobflix_dart/layout/Categories/ButtonCategories.dart';
-import "package:mobflix_dart/layout/Categories/Categories.dart";
-import 'package:mobflix_dart/layout/Categories/ItemCategory_filter.dart';
-import "package:mobflix_dart/layout/Categories/ListCategory.dart";
+import 'package:mobflix_dart/layout/Categories/button_categories.dart';
+import "package:mobflix_dart/layout/Categories/categories.dart";
+import 'package:mobflix_dart/layout/Categories/item_category_filter.dart';
+import "package:mobflix_dart/layout/Categories/list_category.dart";
 
-import 'Categories/ItemCategory.dart';
-
-class layout extends StatefulWidget {
-  const layout({super.key});
+class Layout extends StatefulWidget {
+  const Layout({super.key});
 
   @override
-  State<layout> createState() => _layoutState();
+  State<Layout> createState() => _LayoutState();
 }
 
-class _layoutState extends State<layout> {
+class _LayoutState extends State<Layout> {
   String _selectedCategory = "Front End"; // Variável de estado
 
   String selectCategory(title) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ButtonCategories.dart';
+import 'button_categories.dart';
 
 class ItemCategory extends StatelessWidget {
   final String category;
