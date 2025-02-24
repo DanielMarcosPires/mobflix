@@ -3,6 +3,7 @@ import 'package:mobflix_dart/layout/Categories/button_categories.dart';
 import "package:mobflix_dart/layout/Categories/categories.dart";
 import 'package:mobflix_dart/layout/Categories/item_category_filter.dart';
 import "package:mobflix_dart/layout/Categories/list_category.dart";
+import 'package:mobflix_dart/layout/second_screen.dart';
 
 class Layout extends StatefulWidget {
   const Layout({super.key});
@@ -26,8 +27,7 @@ class _LayoutState extends State<Layout> {
             selectedCategory: _selectedCategory,
             image: "ThumbVideo1",
             categoryName: "Mobile")
-      ];//Insira Vídeos aqui!
-
+      ]; //Insira Vídeos aqui!
   List<Widget> get itemsCategory => list.isEmpty
       ? [
           ItemcategoryFilter(
@@ -85,7 +85,11 @@ class _LayoutState extends State<Layout> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SecondScreen())
+            );
+          },
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),

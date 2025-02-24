@@ -32,7 +32,6 @@ class ItemCategory extends StatelessWidget {
                 Image.asset(
                   "assets/images/${image.isEmpty ? "SemFoto" : image}.png",
                   width: double.maxFinite,
-                  height: image.isEmpty? 200: null,
                   fit: BoxFit.contain,
                 )
               ],
