@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'item_category.dart';
 
-class ItemcategoryFilter extends StatelessWidget {
+class ItemCategoryFilter extends StatelessWidget {
   final String selectedCategory;
   final String image;
   final String categoryName;
 
-  const ItemcategoryFilter(
+  const ItemCategoryFilter(
       {super.key,
       required this.selectedCategory,
       required this.image,

@@ -22,15 +22,12 @@ class _LayoutState extends State<Layout> {
     return _selectedCategory;
   }
 
-  List<Widget> get list => [
-        ItemcategoryFilter(
-            selectedCategory: _selectedCategory,
-            image: "ThumbVideo1",
-            categoryName: "Mobile")
-      ]; //Insira Vídeos aqui!
+  List<Widget> get list => [];
+
+  //Insira Vídeos aqui!
   List<Widget> get itemsCategory => list.isEmpty
       ? [
-          ItemcategoryFilter(
+          ItemCategoryFilter(
               selectedCategory: _selectedCategory,
               image: "",
               categoryName: "Sem Categoria!")
@@ -63,7 +60,7 @@ class _LayoutState extends State<Layout> {
             Divider(),
             Categories(
               children: itemsCategory
-                  .map((element) => (element as ItemcategoryFilter)
+                  .map((element) => (element as ItemCategoryFilter)
                       .categoryName) // Extrai os nomes
                   .toSet() // Remove duplicatas
                   .map((category) => ButtonCategories(
@@ -75,7 +72,7 @@ class _LayoutState extends State<Layout> {
             Divider(),
             ListCategory(
               children: itemsCategory
-                  .where((element) => (element as ItemcategoryFilter)
+                  .where((element) => (element as ItemCategoryFilter)
                       .categoryName
                       .contains(_selectedCategory)) // Filtra pelas categorias
                   .toList(),
@@ -87,8 +84,7 @@ class _LayoutState extends State<Layout> {
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SecondScreen())
-            );
+                MaterialPageRoute(builder: (context) => SecondScreen()));
           },
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           shape:
